@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="Science ecosystem diagram">
+  <rect width="1200" height="630" fill="#e9fff2"/>
+  <rect x="120" y="120" width="960" height="390" rx="22" fill="#ffffff" stroke="#dbe4ee" stroke-width="3"/>
+  <text x="600" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#1f2a37">Pond Food Chain</text>
+  <text x="260" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#22c55e">Algae</text>
+  <text x="490" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#3b82f6">Small Fish</text>
+  <text x="720" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#fb923c">Big Fish</text>
+  <text x="940" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#1f2a37">Heron</text>
+  <path d="M305 305 L430 305" stroke="#5c6b7a" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M535 305 L660 305" stroke="#5c6b7a" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M765 305 L890 305" stroke="#5c6b7a" stroke-width="4" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#5c6b7a"/>
+    </marker>
+  </defs>
+</svg>
