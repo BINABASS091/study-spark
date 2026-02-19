@@ -6,6 +6,10 @@ A simple, student-friendly educational blog for Grade 6-12 assignment help.
 
 See [DEPLOY_FREE_HOSTING.md](DEPLOY_FREE_HOSTING.md) for step-by-step publishing on free hosting (GitHub Pages recommended).
 
+## Full System Description
+
+See [BLOG_HOW_IT_WORKS.md](BLOG_HOW_IT_WORKS.md) for a full detailed explanation of how the blog works.
+
 ## Included Deliverables
 
 - 1 homepage (`index.html`)
