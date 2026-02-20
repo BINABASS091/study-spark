@@ -36,11 +36,7 @@ function listItemTemplate(post) {
 function renderHome() {
   const posts = getPosts();
   const featuredGrid = byId("featuredGrid");
-  const allPostsGrid = byId("allPostsGrid");
-  const latestList = byId("latestList");
-  const popularList = byId("popularList");
   const subjectFilter = byId("subjectFilter");
-  const gradeFilter = byId("gradeFilter");
   const searchInput = byId("searchInput");
   const subjectChips = byId("subjectChips");
 
@@ -62,56 +58,29 @@ function renderHome() {
     subjectChips.appendChild(chip);
   });
 
-  const latestPosts = [...posts].sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 3);
-  latestList.innerHTML = latestPosts.map(listItemTemplate).join("");
 
-  const popularPosts = [...posts].sort((a, b) => b.popularity - a.popularity).slice(0, 3);
-  popularList.innerHTML = popularPosts.map(listItemTemplate).join("");
 
   function applyFilters() {
     const keyword = searchInput.value.trim().toLowerCase();
     const subject = subjectFilter.value;
-    const grade = gradeFilter.value;
 
     const filtered = posts.filter((post) => {
       const subjectMatch = subject === "all" || post.subject === subject;
-      const gradeMatch = grade === "all" || post.gradeBand === grade;
       const textMatch = !keyword || `${post.title} ${post.excerpt} ${post.subject}`.toLowerCase().includes(keyword);
-      return subjectMatch && gradeMatch && textMatch;
+      return subjectMatch && textMatch;
     });
 
     const featured = filtered.filter((post) => post.featured);
-    featuredGrid.innerHTML = featured.length ? featured.map(cardTemplate).join("") : "<p>No featured posts found.</p>";
-    allPostsGrid.innerHTML = filtered.length ? filtered.map(cardTemplate).join("") : "<p>No posts match your search.</p>";
+    if (featured.length === 0) {
+      featuredGrid.innerHTML = filtered.length ? filtered.map(cardTemplate).join("") : "<p>No posts match your search.</p>";
+    } else {
+      featuredGrid.innerHTML = featured.map(cardTemplate).join("");
+    }
   }
 
   searchInput.addEventListener("input", applyFilters);
   subjectFilter.addEventListener("change", applyFilters);
-  gradeFilter.addEventListener("change", applyFilters);
   applyFilters();
-
-  const newsletterForm = byId("newsletterForm");
-  const newsletterMessage = byId("newsletterMessage");
-  newsletterForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const email = byId("newsletterEmail").value.trim();
-    localStorage.setItem("studyspark_newsletter", email);
-    newsletterMessage.textContent = "Subscribed successfully. You will receive new assignment updates.";
-    newsletterForm.reset();
-  });
-
-  const feedbackForm = byId("feedbackForm");
-  const feedbackMessage = byId("feedbackMessage");
-  feedbackForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const name = byId("teacherName").value.trim();
-    const message = byId("teacherMessage").value.trim();
-    const allFeedback = JSON.parse(localStorage.getItem("studyspark_feedback") || "[]");
-    allFeedback.push({ name, message, submittedAt: new Date().toISOString() });
-    localStorage.setItem("studyspark_feedback", JSON.stringify(allFeedback));
-    feedbackMessage.textContent = "Thanks for the suggestion. We will review it soon.";
-    feedbackForm.reset();
-  });
 }
 
 function getQueryParam(key) {

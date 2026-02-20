@@ -24,8 +24,6 @@
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#featured">Featured</a>
         <a href="#subjects">Subjects</a>
-        <a href="#latest">Latest</a>
-        <a href="#popular">Popular</a>
       </nav>
     </div>
   </header>
@@ -41,12 +39,6 @@
           <select id="subjectFilter" aria-label="Filter by subject">
             <option value="all">All Subjects</option>
           </select>
-          <select id="gradeFilter" aria-label="Filter by grade">
-            <option value="all">All Grades</option>
-            <option value="6-8">Grade 6-8</option>
-            <option value="9-10">Grade 9-10</option>
-            <option value="11-12">Grade 11-12</option>
-          </select>
         </div>
       </div>
     </section>
@@ -59,45 +51,6 @@
     <section id="featured" class="section container">
       <h2>Featured Assignment Guides</h2>
       <div id="featuredGrid" class="card-grid"></div>
-    </section>
-
-    <section id="latest" class="section container split">
-      <div>
-        <h2>Latest Posts</h2>
-        <div id="latestList" class="list-cards"></div>
-      </div>
-      <div>
-        <h2>Popular Posts</h2>
-        <div id="popularList" class="list-cards"></div>
-      </div>
-    </section>
-
-    <section class="section container">
-      <h2>All Assignment Posts</h2>
-      <div id="allPostsGrid" class="card-grid"></div>
-    </section>
-
-    <section class="section container newsletter">
-      <h2>Get Assignment Updates</h2>
-      <p>Subscribe to receive new guides and worksheet updates.</p>
-      <form id="newsletterForm" class="simple-form">
-        <label for="newsletterEmail">Email</label>
-        <input id="newsletterEmail" type="email" required placeholder="you@example.com" />
-        <button type="submit">Subscribe</button>
-      </form>
-      <p id="newsletterMessage" class="form-message" aria-live="polite"></p>
-    </section>
-
-    <section class="section container feedback">
-      <h2>Teacher Suggestions (Optional)</h2>
-      <form id="feedbackForm" class="simple-form">
-        <label for="teacherName">Name</label>
-        <input id="teacherName" type="text" placeholder="Teacher name" required />
-        <label for="teacherMessage">Suggestion</label>
-        <textarea id="teacherMessage" rows="4" placeholder="Share a topic you want us to cover" required></textarea>
-        <button type="submit">Send Suggestion</button>
-      </form>
-      <p id="feedbackMessage" class="form-message" aria-live="polite"></p>
     </section>
   </main>
 
